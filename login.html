@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Siswa</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <section>
+        <nav>
+            <div class="container-nav">
+                <div class="logo">
+                    <img src="" alt="">
+                    <p class="absensi">Absensi Siswa</p>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Join</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="form-login">
+            <div class="container-login">
+                <div class="login-top">
+                    <p class="free">START FOR FREE</p>
+                    <h1 class="judul"><span class="titik"></span></h1>
+                    <!-- <span>Already A Member? <a href="">Log in</a></span> -->
+                </div>
+                <div class="fill-form">
+                    <div class="button-box">
+                        <div id="btn"></div>
+                        <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                        <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                    </div>
+                    <form class="input-group login" id="login" action="">
+                        <div class="user-detail">
+                            <div class="input-box">
+                                <label class="details color putih">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Enter email" autocomplete="off" required>
+                                <i class="fa-solid fa-envelope icon"></i>
+                            </div>
+                            <div class="input-box">
+                                <label class="details putih color">Password</label>
+                                <input type="password" id="password" name="password" placeholder="Enter password" autocomplete="off" required>
+                                <i id="hide1" class="fa-solid fa-eye icon" onclick="myFunction()"></i>
+                                <i id="hide2" class="fa-solid fa-eye-slash icon" onclick="myFunction()"></i>
+                            </div>
+                            <p class="forgot"><a href="">Lupa Password?</a></p>
+                            <div class="button">
+                                <!-- <button class="method tombol">Change Method</button> -->
+                                <button class="log-in pencet">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="input-group register" id="register" action="../Tugas_10/index.html">
+                        <div class="user-detail">
+                            <div class="input-name">
+                                <div class="input-box name first-box">
+                                    <label class="details putih color">First Name</label>
+                                    <input type="text" id="first-name" class="input first-name" name="first-name" placeholder="Enter first name" autocomplete="off" required>
+                                    <i class="fa-solid fa-address-card icon"></i>
+                                </div>
+                                <div class="input-box name last-box">
+                                    <label class="details putih color">Last Name</label>
+                                    <input type="text" id="last-name" class="input last-name" name="last-name" placeholder="Enter last name" autocomplete="off" required>
+                                    <i class="fa-solid fa-address-card icon"></i>
+                                </div>
+                            </div>
+                            <div class="input-box email-box">
+                                <label class="details putih color">Email</label>
+                                <input type="email" id="email" class="input email" name="email" placeholder="Enter email" autocomplete="off" required>
+                                <i class="fa-solid fa-envelope icon"></i>
+                            </div>
+                            <div class="input-box password-box">
+                                <label class="details putih color">Password</label>
+                                <input type="password" class="input password" id="password1" name="password" placeholder="Enter password" autocomplete="off" required>
+                                <i id="hide3" class="fa-solid fa-eye icon" onclick="myFunction1()"></i>
+                                <i id="hide4" class="fa-solid fa-eye-slash icon" onclick="myFunction1()"></i>
+                            </div>
+                            <div class="button">
+                                <button class="method pencet">Change Method</button>
+                                <button type="submit" class="create pencet">Create account</button>
+                                <!-- <a href="../Tugas_10/index.html">
+                                    <button type="button" type="submit" class="create pencet">Create account</button>
+                                </a> -->
+                                <!-- <button type="button" class="create pencet">
+                                    Create account
+                                    <a href="../Tugas_10/index.html"></a>
+                                </button> -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
+    <img src="img/garis5.png" class="garis">
+    <div class="gambar">
+        <img src="img/wong.png" class="garis wong">
+        <img src="img/wong1.png" class="garis wong1">
+        <img src="img/earth.png" class="garis earth">
+        <img src="img/rocket.png" class="garis rocket">
+        <!-- <img src="gif/5.png" alt="gif" width="700px"> -->
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(TextPlugin);
+        // gsap.to('.judul', {duration: 2, text: 'Selamat datang di Ekskul Coding.'})
+        // gsap.to('.titik', {duration: 1, delay: 1, text: 'Halo'});
+        gsap.from('.free', {duration: 1, delay: 1, x: -100, opacity: 0});
+        gsap.from('.absensi', {duration: 1, delay: 1, y: -100, opacity: 0, ease: 'bounce'});
+    </script>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById('password');
+            var y = document.getElementById('hide1');
+            var z = document.getElementById('hide2');
+
+            if(x.type === 'password') {
+                x.type = 'text';
+                y.style.display = 'block';
+                z.style.display = 'none';
+            }
+            else {
+                x.type = 'password';
+                y.style.display = 'none';
+                z.style.display = 'block';
+            }
+        }
+
+        function myFunction1() {
+            var x = document.getElementById('password1');
+            var y = document.getElementById('hide3');
+            var z = document.getElementById('hide4');
+
+            if(x.type === 'password') {
+                x.type = 'text';
+                y.style.display = 'block';
+                z.style.display = 'none';
+            }
+            else {
+                x.type = 'password';
+                y.style.display = 'none';
+                z.style.display = 'block';
+            }
+        }
+
+        var x = document.getElementById('login');
+        var y = document.getElementById('register');
+        var z = document.getElementById('btn');
+
+        function register() {
+            x.style.left = '-700px';
+            y.style.left = '0';
+            z.style.left = '110px';
+        }
+
+        function login() {
+            x.style.left = '0';
+            y.style.left = '650px';
+            z.style.left = '0';
+        }
+    </script>
+
+    <script>
+        const inputs = document.querySelectorAll('input');
+        let labels = document.querySelectorAll('label');
+
+        function focusFunc() {
+            let parent = this.parentNode;
+            parent.classList.add('checked');
+        }
+
+        function blurFunc() {
+            let parent = this.parentNode;
+
+            if(this.value == '') {
+                parent.classList.remove('checked');
+            }
+        }
+
+        inputs.forEach(input => {
+            input.addEventListener('focus', focusFunc);
+            input.addEventListener('blur', blurFunc);
+        })
+    </script>
+
+    <script>
+        const register = document.querySelector('.register'),
+                firstBox = register.querySelector('.first-box'),
+                firstInput = firstBox.querySelector('.first-name'),
+                lastBox = register.querySelector('.last-box'),
+                lastInput = lastBox.querySelector('.last-name'),
+                emailBox = register.querySelector('.email-box'),
+                emailInput = emailBox.querySelector('.email'),
+                passwordBox = register.querySelector('.password-box'),
+                passwordInput = passwordBox.querySelector('.password');
+
+        function checkEmail() {
+            if(!firstInput.value == '' &&
+                !lastInput.value == '' &&
+                !emailInput.value == '' &&
+                !passwordInput.value == '') {
+                    location.href = register.getAttribute('action');
+            }
+        }
+
+        register.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            checkEmail();
+        })
+    </script>
+
+    <script>
+        var typing=new Typed(".judul", {
+			strings: [ "", "Selamat Datang di Ekskul Coding."],
+			typeSpeed: 100,
+			backSpeed: 40,
+			loop: true,
+		});
+    </script>
+
+    <script>
+        const button = document.querySelector('.create');
+        const input = document.querySelectorAll('.input');
+
+        if(button == true) {
+            location.href = "../Tugas_10/index.html";
+        }
+
+        // button.addEventListener('click', () => {
+        //     button.classList.toggle('muncul')
+        // })
+
+
+    </script>
+
+    <script>
+        // const absensi = document.querySelector('.absensi');
+
+        // absensi.addEventListener('load', function() {
+        //     absensi.style.transform = 'scale(1)';
+        // })
+
+    </script>
+</body>
+</html>
